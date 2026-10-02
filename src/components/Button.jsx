@@ -10,11 +10,15 @@ function Button({
 }) {
 
   const variants = {
-    primary: "bg-green-600 text-white hover:bg-green-700",
-    secondary: "bg-gray-500 text-white hover:bg-gray-600",
-    warning: "bg-yellow-500 text-white hover:bg-yellow-600",
-    danger: "bg-red-500 text-white hover:bg-red-600",
-    info: "bg-cyan-500 text-white hover:bg-teal-600",
+    primary: "bg-green-500 dark:bg-green-600 dark:active:bg-green-700 dark:active:text-gray-400 text-white hover:bg-green-700 active:bg-green-600 active:text-gray-300",
+
+    secondary: "bg-gray-500 dark:bg-gray-600 dark:active:bg-gray-700 dark:active:text-gray-400 text-white hover:bg-gray-700 active:bg-gray-600 active:text-gray-300",
+
+    warning: "bg-yellow-500 dark:bg-yellow-600 dark:active:bg-yellow-700 dark:active:text-gray-400 text-white hover:bg-yellow-700 active:bg-yellow-600 active:text-gray-300",
+
+    danger: "bg-red-500 dark:bg-red-600 dark:active:bg-red-700 dark:active:text-gray-400 text-white hover:bg-red-700 active:bg-red-600 active:text-gray-300",
+
+    info: "bg-cyan-500 dark:bg-cyan-600 dark:active:bg-cyan-700 dark:active:text-gray-400 text-white hover:bg-cyan-700 active:bg-cyan-600 active:text-gray-300",
   };
 
   const baseClass = `
