@@ -31,8 +31,13 @@ function Navbar() {
     <nav className="sticky top-0 z-50 border-b border-gray-200 bg-[#f7f6ef] text-gray-900 transition-colors duration-300 dark:border-gray-700 dark:bg-gray-900 dark:text-white">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
-        <NavLink to="/" className="text-2xl font-bold text-green-500">
-          EcoTech
+        <NavLink to="/" className="text-2xl font-bold text-green-500 flex items-center">
+          <img
+            src="../images/ecotech-logo.png"
+            alt="EcoTech"
+            className="h-10 w-auto me-2"
+          />
+          Eco<span className="text-green-700">Tech</span>
         </NavLink>
 
         {/* Menu Desktop */}
