@@ -36,7 +36,14 @@ function Footer() {
                 <NavLink
                   key={link.path}
                   to={link.path}
-                  className="w-fit text-sm transition-colors duration-300 dark:text-gray-300 hover:text-green-500 "
+                  className={({ isActive }) =>
+                  `transition-all duration-50 ${
+                    isActive
+                      ? "text-green-500 text-sm"
+                      : "w-fit text-sm dark:text-gray-300 hover:text-green-500 active:text-green-800 active:font-semibold active:scale-95"
+                  }`
+                }
+                  // className="w-fit text-sm transition-colors duration-300 dark:text-gray-300 hover:text-green-500 "
                 >
                   {link.name}
                 </NavLink>
