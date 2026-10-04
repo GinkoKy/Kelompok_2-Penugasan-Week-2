@@ -1,16 +1,52 @@
-# React + Vite
+# EcoTech — Technology for a Greener Future
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+EcoTech adalah website edukasi digital yang mengangkat isu pemanfaatan teknologi secara lebih bertanggung jawab terhadap lingkungan.
 
-Currently, two official plugins are available:
+Website ini membahas tantangan lingkungan di era digital, seperti meningkatnya limbah elektronik dan konsumsi energi, serta memperkenalkan beberapa inisiatif yang dapat mendukung pemanfaatan teknologi secara lebih berkelanjutan.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tujuan
 
-## React Compiler
+EcoTech dibuat sebagai media edukasi digital untuk meningkatkan kesadaran mengenai hubungan antara perkembangan teknologi dan kelestarian lingkungan.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Fitur
 
-## Expanding the ESLint configuration
+- Halaman Beranda dengan hero section dan informasi utama
+- Halaman Masalah: tantangan lingkungan di era digital
+- Halaman Program: program inisiatif hijau, dengan pop-up detail
+- Halaman Aksi: langkah sederhana yang dapat dilakukan
+- Halaman Dampak: informasi dampak dan target program
+- Halaman Kontak: FAQ dan form kontak
+- Navigasi antar-halaman, termasuk menu versi HP
+- Mode gelap dan terang
+- Responsive design untuk berbagai ukuran layar
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Teknologi
+
+- React
+- Vite
+- Tailwind CSS
+- React Router DOM
+- JavaScript
+- Git & GitHub
+- ChatGPT (AI)
+
+## Struktur Project
+
+```
+ecotech2/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── data/
+│   ├── layouts/
+│   ├── pages/
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+├── index.html
+├── package.json
+├── vite.config.js
+├── README.md
+└── PengerjaanKelompok.md
+```
