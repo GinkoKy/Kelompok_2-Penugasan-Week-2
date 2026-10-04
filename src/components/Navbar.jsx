@@ -1,13 +1,32 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import Button from "./Button";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navRef = useRef(null);
 
   const [isDarkMode, setIsDarkMode] = useState(() => {
     return localStorage.getItem("theme") === "dark";
   });
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (
+        isMenuOpen &&
+        navRef.current &&
+        !navRef.current.contains(event.target)
+      ) {
+        setIsMenuOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMenuOpen]);
 
   useEffect(() => {
     if (isDarkMode) {
@@ -28,10 +47,15 @@ function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-gray-200 bg-[#f7f6ef] text-gray-900 transition-colors duration-300 dark:border-gray-700 dark:bg-gray-900 dark:text-white">
+    <nav 
+      ref={navRef}
+      className="sticky top-0 z-50 border-b border-gray-200 bg-[#f7f6ef] text-gray-900 transition-colors duration-300 dark:border-gray-700 dark:bg-gray-900 dark:text-white">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
-        <NavLink to="/" className="text-2xl font-bold text-green-500 flex items-center">
+        <NavLink
+          to="/"
+          className="text-2xl font-bold text-green-500 flex items-center"
+        >
           <img
             src="../images/ecotech-logo.png"
             alt="EcoTech"
