@@ -8,19 +8,7 @@ import Program from "./pages/Program";
 import Aksi from "./pages/Aksi";
 import Dampak from "./pages/Dampak";
 import Kontak from "./pages/Kontak";
-
-function NotFound() {
-  return (
-    <div className="flex min-h-[60vh] items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-5xl font-bold">404</h1>
-        <p className="mt-3 text-gray-600">
-          Halaman tidak ditemukan.
-        </p>
-      </div>
-    </div>
-  );
-}
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
