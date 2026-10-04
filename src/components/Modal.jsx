@@ -11,16 +11,17 @@ function Modal({ isOpen, onClose, title, description, children }) {
 
   return (
     <div
-      className="fixed inset-0 z-100 flex items-center justify-center bg-black/50 px-6 backdrop-blur-sm"
+      className="fixed inset-0 z-100 flex items-center justify-center bg-black/50 px-6 backdrop-blur-sm animate-[modalOverlay_0.3s_ease-out]"
       onClick={handleOverlayClick}
     >
-      <div className="relative w-full max-w-lg rounded-2xl bg-white p-8 shadow-2xl dark:bg-gray-900">
+      <div className="relative w-full max-w-lg rounded-2xl bg-white p-8 shadow-2xl animate-[modalIn_0.3s_ease-out] dark:bg-gray-900">
+        
         {/* Tombol Close */}
         <button
           type="button"
           onClick={onClose}
           aria-label="Tutup modal"
-          className="absolute right-5 top-5 flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-all duration-300 hover:scale-105 hover:bg-green-100 hover:text-green-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-green-900/30 dark:hover:text-green-400"
+          className="cursor-pointer absolute right-5 top-5 flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-all duration-300 hover:scale-105 hover:bg-green-100 hover:text-green-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-green-900/30 dark:hover:text-green-400"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
