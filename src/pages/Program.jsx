@@ -47,6 +47,7 @@ function Program() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {programData.map((program) => (
             <Card
+              className="active:scale-95 active:duration-75 active:border-green-400"
               key={program.id}
               number={program.number}
               icon={program.icon}

@@ -2,7 +2,7 @@ function Card({ title, description, icon, number, onClick }) {
   return (
     <div
       onClick={onClick}
-      className={`group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-green-400 hover:shadow-lg dark:border-gray-700 dark:bg-gray-900 active:scale-95 active:duration-75 active:border-green-400 ${
+      className={`group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-green-400 hover:shadow-lg dark:border-gray-700 dark:bg-gray-900 ${
         onClick ? "cursor-pointer" : ""
       }`}
     >
