@@ -11,7 +11,7 @@ function Modal({ isOpen, onClose, title, description, children }) {
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 px-6 backdrop-blur-sm"
+      className="fixed inset-0 z-100 flex items-center justify-center bg-black/50 px-6 backdrop-blur-sm"
       onClick={handleOverlayClick}
     >
       <div className="relative w-full max-w-lg rounded-2xl bg-white p-8 shadow-2xl dark:bg-gray-900">

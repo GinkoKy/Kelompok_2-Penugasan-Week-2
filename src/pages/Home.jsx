@@ -1,103 +1,31 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Button from "../components/Button";
-
-const slides = [
-  {
-    image: "/images/carousel-1.jpeg",
-    label: "Green Technology",
-    title: "Teknologi untuk Masa Depan yang Lebih Hijau",
-    description:
-      "Menggunakan teknologi dengan lebih bijak agar bisa membantu menciptakan lingkungan yang lebih baik.",
-  },
-  {
-    image: "/images/carousel-2.jpg",
-    label: "Environment",
-    title: "Teknologi dan Lingkungan",
-    description:
-      "Teknologi memberikan banyak manfaat, tetapi penggunaannya juga dapat memberikan dampak bagi lingkungan.",
-  },
-  {
-    image: "/images/carousel-3.jpeg",
-    label: "Take Action",
-    title: "Perubahan Bisa Dimulai dari Kita",
-    description:
-      "Mulai dari kebiasaan sederhana seperti merawat perangkat dan menggunakan teknologi seperlunya.",
-  },
-];
+import homeData from "../data/home";
 
 function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [activeFeature, setActiveFeature] = useState(null);
 
+  // Carousel otomatis
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((current) => (current + 1) % slides.length);
+      setCurrentSlide((current) => (current + 1) % homeData.slides.length);
     }, 5000);
 
     return () => clearInterval(timer);
   }, []);
 
   function nextSlide() {
-    setCurrentSlide((current) => (current + 1) % slides.length);
+    setCurrentSlide((current) => (current + 1) % homeData.slides.length);
   }
 
   function previousSlide() {
-    setCurrentSlide((current) => (current - 1 + slides.length) % slides.length);
+    setCurrentSlide(
+      (current) =>
+        (current - 1 + homeData.slides.length) % homeData.slides.length,
+    );
   }
-
-  const topics = [
-    {
-      number: "01",
-      title: "Masalah",
-      description:
-        "Kenali berbagai masalah lingkungan yang muncul akibat penggunaan teknologi.",
-      path: "/masalah",
-      image: "../images/masalah.jpeg",
-    },
-    {
-      number: "02",
-      title: "Program",
-      description:
-        "Pelajari program dan solusi teknologi yang lebih ramah terhadap lingkungan.",
-      path: "/program",
-      image: "../images/program.jpeg",
-    },
-    {
-      number: "03",
-      title: "Aksi",
-      description:
-        "Temukan langkah sederhana yang bisa dilakukan untuk menggunakan teknologi dengan lebih bijak.",
-      path: "/aksi",
-      image: "../images/aksi.jpg",
-    },
-    {
-      number: "04",
-      title: "Dampak",
-      description:
-        "Lihat bagaimana penggunaan teknologi dapat memberikan dampak terhadap lingkungan.",
-      path: "/dampak",
-      image: "../images/dampak.jpeg",
-    },
-  ];
-
-  const features = [
-    {
-      title: "Menggunakan Teknologi dengan Bijak",
-      description:
-        "Gunakan perangkat sesuai kebutuhan dan pertimbangkan dampaknya terhadap lingkungan.",
-    },
-    {
-      title: "Menjaga Keberlanjutan",
-      description:
-        "Teknologi dapat terus berkembang tanpa harus mengabaikan kondisi lingkungan di sekitar kita.",
-    },
-    {
-      title: "Bertanggung Jawab",
-      description:
-        "Setiap orang dapat ikut menjaga lingkungan melalui kebiasaan sederhana dalam menggunakan teknologi.",
-    },
-  ];
 
   return (
     <div className="overflow-hidden bg-[#f7f6ef] text-gray-900 transition-colors duration-300 dark:bg-gray-900 dark:text-white">
@@ -108,27 +36,29 @@ function Home() {
         <div className="relative mx-auto flex max-w-4xl flex-col items-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-700 dark:border-green-900 dark:bg-green-900/20 dark:text-green-400">
             <span className="h-2 w-2 rounded-full bg-green-500"></span>
-            Technology for a Greener Future
+
+            {homeData.hero.label}
           </div>
 
           <h1 className="text-4xl font-bold leading-tight md:text-6xl">
-            Membangun Masa Depan
-            <span className="block text-green-500">Bersama Teknologi</span>
+            {homeData.hero.title}
+
+            <span className="block text-green-500">
+              {homeData.hero.highlight}
+            </span>
           </h1>
 
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-400">
-            EcoTech membahas hubungan antara teknologi dan lingkungan. Melalui
-            website ini, kita bisa mengenal masalah yang ada dan mencari
-            kebiasaan sederhana yang bisa dilakukan sehari-hari.
+            {homeData.hero.description}
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Button to="/aksi" variant="primary">
-              Mulai Beraksi
+            <Button to={homeData.hero.primaryButton.path} variant="primary">
+              {homeData.hero.primaryButton.text}
             </Button>
 
-            <Button to="/masalah" variant="secondary">
-              Jelajahi EcoTech
+            <Button to={homeData.hero.secondaryButton.path} variant="secondary">
+              {homeData.hero.secondaryButton.text}
             </Button>
           </div>
         </div>
@@ -144,7 +74,7 @@ function Home() {
                 transform: `translateX(-${currentSlide * 100}%)`,
               }}
             >
-              {slides.map((slide, index) => (
+              {homeData.slides.map((slide, index) => (
                 <div key={index} className="relative min-w-full">
                   <img
                     src={slide.image}
@@ -227,7 +157,7 @@ function Home() {
 
             {/* Penanda slide */}
             <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-2">
-              {slides.map((_, index) => (
+              {homeData.slides.map((slide, index) => (
                 <button
                   key={index}
                   type="button"
@@ -264,11 +194,11 @@ function Home() {
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {topics.map((topic) => (
+            {homeData.topics.map((topic) => (
               <NavLink
                 key={topic.path}
                 to={topic.path}
-                className="transition-all duration-300 group relative h-80 overflow-hidden rounded-2xl hover:-translate-y-2"
+                className="group relative h-80 overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-2"
               >
                 {/* Foto */}
                 <img
@@ -280,7 +210,7 @@ function Home() {
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-black/45 transition-colors duration-300 group-hover:bg-black/55"></div>
 
-                {/* Isi */}
+                {/* Isi Card */}
                 <div className="relative flex h-full flex-col justify-end p-6 text-white">
                   <span className="mb-3 text-sm font-semibold tracking-widest text-green-300">
                     {topic.number}
@@ -292,7 +222,7 @@ function Home() {
                     {topic.description}
                   </p>
 
-                  <div className="mt-4 font-medium text-green-300 transition-transform duration-300 ">
+                  <div className="mt-4 font-medium text-green-300 transition-transform duration-300 group-hover:translate-x-2">
                     Lihat selengkapnya
                   </div>
                 </div>
@@ -329,14 +259,14 @@ function Home() {
             </div>
 
             <div className="space-y-4">
-              {features.map((feature, index) => (
+              {homeData.features.map((feature, index) => (
                 <button
                   key={feature.title}
                   type="button"
                   onClick={() =>
                     setActiveFeature(activeFeature === index ? null : index)
                   }
-                  className="w-full rounded-2xl border border-gray-200 bg-white p-6 text-left transition-all duration-300 hover:border-green-400 hover:shadow-lg dark:border-gray-700 dark:bg-gray-900 cursor-pointer"
+                  className="w-full cursor-pointer rounded-2xl border border-gray-200 bg-white p-6 text-left transition-all duration-300 hover:border-green-400 hover:shadow-lg dark:border-gray-700 dark:bg-gray-900"
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4">
@@ -381,21 +311,20 @@ function Home() {
         <div className="mx-auto max-w-6xl rounded-3xl bg-green-600 px-8 py-16 text-center text-white shadow-xl md:px-16">
           <div className="mx-auto max-w-3xl">
             <p className="font-semibold uppercase tracking-widest text-green-200">
-              Take Action
+              {homeData.cta.label}
             </p>
 
             <h2 className="mt-3 text-3xl font-bold md:text-5xl">
-              Perubahan Dimulai dari Langkah Kecil
+              {homeData.cta.title}
             </h2>
 
             <p className="mx-auto mt-5 max-w-2xl leading-relaxed text-green-50">
-              Tidak perlu menunggu perubahan besar. Kita bisa mulai dari
-              kebiasaan kecil saat menggunakan teknologi sehari-hari.
+              {homeData.cta.description}
             </p>
 
             <div className="mt-8 flex justify-center">
-              <Button to="/aksi" variant="secondary">
-                Mulai Sekarang
+              <Button to={homeData.cta.button.path} variant="secondary">
+                {homeData.cta.button.text}
               </Button>
             </div>
           </div>
