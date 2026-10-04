@@ -1,3 +1,15 @@
+# Pengerjaan Kelompok — EcoTech
+
+## Project
+
+**Nama Project:** EcoTech — Technology for a Greener Future
+
+**Tema:** Teknologi Ramah Lingkungan dan Edukasi Digital
+
+EcoTech merupakan website edukasi digital yang membahas dampak perkembangan teknologi terhadap lingkungan serta mendorong penggunaan teknologi secara lebih bertanggung jawab dan berkelanjutan.
+
+---
+
 ## Pembagian Tugas
 
 ### 1. Krishna Yudhistira Pratama
@@ -45,6 +57,21 @@ Tugas:
 - Memasang bagian FAQ pada halaman Kontak dan menyediakan tempat untuk form Kontak.
 - Menyusun dokumentasi pembagian pekerjaan melalui `PengerjaanKelompok.md`.
 - Menyusun dokumentasi project melalui `README.md`.
+
+---
+
+## Tools yang Digunakan
+
+- **React**: library untuk membangun tampilan website berbasis komponen.
+- **Vite**: build tool untuk menjalankan dan mem-build project dengan cepat.
+- **Tailwind CSS**: framework CSS untuk styling tampilan.
+- **React Router DOM**: pengatur perpindahan antar halaman.
+- **ESLint**: pengecek kerapian dan kualitas kode.
+- **Node.js & npm**: menjalankan project dan mengelola library.
+- **Git & GitHub**: version control dan integrasi hasil kerja anggota kelompok.
+- **Vercel**: hosting agar website dapat diakses melalui link.
+- **Visual Studio Code**: editor kode.
+- **ChatGPT**: asisten AI sebagai bantuan dalam pengerjaan project.
 
 ---
 
